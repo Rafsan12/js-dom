@@ -17,7 +17,7 @@ depositTotalElement.innerText = numberCurrentDepositTotal;
 const balanceTotalElement = document.getElementById('balance-total');
 const previousBalanceTotalString = balanceTotalElement.innerText;
 const previousBalanceTotal = parseFloat(previousBalanceTotalString);
-const currentbalanceTotal = numberCurrentDepositTotal + previousBalanceTotal;
+const currentbalanceTotal = previousBalanceTotal + newDepositAmount;
  const numberBalanceTotal = parseFloat(currentbalanceTotal);
  balanceTotalElement.innerText = numberBalanceTotal
 
@@ -45,9 +45,9 @@ document.getElementById('btn-withdraw').addEventListener("click", function(){
  const balanceTotalElement = document.getElementById('balance-total');
  const previousBalanceTotalString = balanceTotalElement.innerText;
  const previousBalanceTotal = parseFloat(previousBalanceTotalString);
- const currentbalanceTotal = previousBalanceTotal - numberWithdrawTotal;
- const numberBalanceTotal = parseFloat(currentbalanceTotal);
- balanceTotalElement.innerText = numberBalanceTotal
+ const currentbalanceTotal = previousBalanceTotal - newWithdrawAmount;
+//  const numberBalanceTotal = parseFloat(currentbalanceTotal);
+ balanceTotalElement.innerText = currentbalanceTotal
 
 
 withdrawField.value = '';
