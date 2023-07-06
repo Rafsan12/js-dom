@@ -1,5 +1,6 @@
 // Deposit part
 
+/*
 document.getElementById('btn-deposit').addEventListener('click', function(){
  const depositField = document.getElementById('deposit');
  const newDepositAmountString = depositField.value;
@@ -25,11 +26,11 @@ const currentbalanceTotal = previousBalanceTotal + newDepositAmount;
 depositField.value = '';
 
 })
-
+*/
 
 
 // withdraw
-
+/*
 document.getElementById('btn-withdraw').addEventListener("click", function(){
     const withdrawField = document.getElementById('withdraw');
     const newWithdrawAmountString = withdrawField.value;
@@ -51,5 +52,66 @@ document.getElementById('btn-withdraw').addEventListener("click", function(){
 
 
 withdrawField.value = '';
+
+})
+
+*/
+
+
+// function-deposit
+
+function getInputValueById(inputFieldId){
+    const inputField = document.getElementById(inputFieldId);
+     const inputFieldValueString = inputField.value;
+     const inputFieldValue = parseFloat(inputFieldValueString)
+     inputField.value = '';
+     return inputFieldValue;
+}
+
+function getElementsValueById(elementId){
+    const element = document.getElementById(elementId);
+    const elementValueString = element.innerText;
+    const value = parseFloat(elementValueString);
+    return value;
+}
+
+function setTextElemtsValueByid(elementId,newValue){
+    const textElemt = document.getElementById(elementId);
+    textElemt.innerText = newValue;
+
+}
+
+
+
+document.getElementById("btn-deposit").addEventListener('click',function(){
+    const newDepositAmount = getInputValueById('deposit')
+
+    const previousDepositTotal = getElementsValueById('deposit-total');
+    console.log(newDepositAmount)
+
+    const newDepositTotal = previousDepositTotal + newDepositAmount;
+    setTextElemtsValueByid('deposit-total',newDepositTotal);
+
+    const previousBalanceTotal = getElementsValueById('balance-total');
+    const newBalanceTotal = previousBalanceTotal + newDepositAmount;
+    setTextElemtsValueByid('balance-total', newBalanceTotal)
+
+})
+
+
+// withdraw-function
+
+document.getElementById("btn-withdraw").addEventListener('click',function(){
+    const newWithdrawAmount = getInputValueById('withdraw')
+
+    const previousWithdrawTotal = getElementsValueById('withdraw-total');
+    console.log(newWithdrawAmount)
+
+    const newWithdrawTotal = previousWithdrawTotal + newWithdrawAmount;
+    setTextElemtsValueByid('withdraw-total',newWithdrawTotal);
+
+    const previousBalanceTotal = getElementsValueById('balance-total');
+    const newBalanceTotal = previousBalanceTotal - newWithdrawAmount;
+    setTextElemtsValueByid('balance-total', newBalanceTotal)
 
 })
