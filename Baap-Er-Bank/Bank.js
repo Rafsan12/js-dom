@@ -58,8 +58,8 @@ withdrawField.value = '';
 */
 
 
-// function-deposit
 
+// bank-function
 function getInputValueById(inputFieldId){
     const inputField = document.getElementById(inputFieldId);
      const inputFieldValueString = inputField.value;
@@ -81,7 +81,7 @@ function setTextElemtsValueByid(elementId,newValue){
 
 }
 
-
+// function-deposit
 
 document.getElementById("btn-deposit").addEventListener('click',function(){
     const newDepositAmount = getInputValueById('deposit')
