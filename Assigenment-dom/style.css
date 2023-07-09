@@ -1,0 +1,29 @@
+@import url("https://fonts.googleapis.com/css2?family=Berkshire+Swash&family=Manrope:wght@400;500;600;700;800&display=swap");
+body {
+  font-family: "Manrope", sans-serif;
+}
+
+h1 {
+  font-family: "Berkshire Swash", cursive;
+  color: #ff5e19;
+  font-size: 76px;
+}
+.custom-underline {
+  background-image: url(../images/underline.png);
+  background-repeat: no-repeat;
+  background-position-x: 50%;
+  background-position-y: 108%;
+  padding-bottom: 9px;
+}
+input {
+  background-color: #000;
+  border: 1px solid white;
+  width: 50%;
+  color: white;
+}
+.text-orange {
+  color: #ff5e19;
+}
+.btn:disabled {
+  background-color: #a2a9af;
+}
