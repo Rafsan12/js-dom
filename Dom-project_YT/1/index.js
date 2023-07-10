@@ -1,11 +1,37 @@
 let div = null;
 
+document.getElementById('change-btn').addEventListener('click',function(){
+    // document.getElementById("root").style.backgroundColor = generateRGBColor();
+    const root = document.getElementById('root');
+    const rgbBtn = generateRGBColor();
+    root.style.backgroundColor = rgbBtn;
+    const output = document.getElementById('output');
+    output.value = rgbBtn
 
+    const copyBtn = document.getElementById('copy-btn');
+    copyBtn.addEventListener('click' , function(){
+        navigator.clipboard.writeText(output.value)
+        if(div !== null){
+            div.remove()
+            div = null;
+        }
+        // generateToastMessage(`${output.value} copied`)
 
-
-
-
-
+        if (isValidHex(output.value)) {
+			navigator.clipboard.writeText(output.value);
+			generateToastMessage(`${output.value} copied`);
+		} else {
+			alert('Invalid Color Code');
+		}
+	});
+    
+    output.addEventListener('keyup', function (e) {
+		const color = e.target.value;
+		if (color && isValidHex(color)) {
+			root.style.backgroundColor = color;
+		}
+	});
+})
 
 
 
@@ -60,29 +86,3 @@ function isValidHex(color){
 // 	return /^[0-9A-Fa-f]{6}$/i.test(color);
 // }
 
-
-
-document.getElementById('change-btn').addEventListener('click',function(){
-    // document.getElementById("root").style.backgroundColor = generateRGBColor();
-    const root = document.getElementById('root');
-    const rgbBtn = generateRGBColor();
-    root.style.backgroundColor = rgbBtn;
-    const output = document.getElementById('output');
-    output.value = rgbBtn
-
-    const copyBtn = document.getElementById('copy-btn');
-    copyBtn.addEventListener('click' , function(){
-        navigator.clipboard.writeText(output.value)
-        if(div !== null){
-            div.remove()
-            div = null;
-        }
-        generateToastMessage(`${output.value} copied`)
-    })
-    output.addEventListener('keyup', function (e) {
-		const color = e.target.value;
-		if (color && isValidHex(color)) {
-			root.style.backgroundColor = color;
-		}
-	});
-})
